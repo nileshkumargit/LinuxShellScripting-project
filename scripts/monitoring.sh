@@ -36,14 +36,9 @@ initialize() {
     [[ ! -d "$LOG_DIR" ]] && mkdir -p "$LOG_DIR"
 
     # Check if running as root (for service management)
-    #if [[ $EUID -ne 0 ]]; then
-     #   log_error "This script must be run as root"
-      #  exit 1
-    #fi
-
-
-    if [ "$EUID" -ne 0 ]; then
-        log_warning "WARN" "Running without root privileges. Some checks may be skipped."
+    if [[ $EUID -ne 0 ]]; then
+        log_error "This script must be run as root"
+        exit 1
     fi
 
     log_info "=== Starting $SCRIPT_NAME ==="
@@ -242,6 +237,5 @@ main() {
 
 # Run the script
 main "$@"
-echo "Script done"
-exit 0
+
         
