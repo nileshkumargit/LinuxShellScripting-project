@@ -43,7 +43,7 @@ initialize() {
 
 
     if [ "$EUID" -ne 0 ]; then
-        log_message "WARN" "Running without root privileges. Some checks may be skipped."
+        log_warning "WARN" "Running without root privileges. Some checks may be skipped."
     fi
 
     log_info "=== Starting $SCRIPT_NAME ==="
