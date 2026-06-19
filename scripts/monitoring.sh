@@ -242,4 +242,6 @@ main() {
 
 # Run the script
 main "$@"
+echo "Script done"
+exit 0
         
